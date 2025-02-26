@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   const { addTask, tasks, deleteTask } = useTaskManager();
 
-  const [selectedTask, setSelectedTask] = useState<Task | null>(null)
+  const [selectedTask, setSelectedTask] = useState<Task | undefined>(undefined);
 
   return (
     <ErrorBoundary>
@@ -30,8 +30,12 @@ const App: React.FC = () => {
               </button>
             </div>
 
-            {/* <TaskFilterBar /> */}
-          <TaskList tasks={tasks} onTaskClick={setSelectedTask} onDeleteTask={deleteTask} />
+            <TaskList
+              tasks={tasks}
+              onTaskClick={setSelectedTask}
+              onDeleteTask={deleteTask}
+              task={selectedTask}
+            />
           </div>
         </div>
 
@@ -40,10 +44,7 @@ const App: React.FC = () => {
           onClose={() => setIsModalOpen(false)}
           title="Add New Task"
         >
-          <TaskForm
-            onSubmit={addTask}
-            onCancel={() => setIsModalOpen(false)}
-          />
+          <TaskForm onSubmit={addTask} onCancel={() => setIsModalOpen(false)} />
         </Modal>
       </div>
     </ErrorBoundary>
