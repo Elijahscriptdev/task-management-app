@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Modal } from "./components/Modal";
 import { TaskForm } from "./components/TaskForm";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { useTaskManager } from "./hooks/useTaskManager";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const handleAddTask = () => {
-    // setIsModalOpen(true);
-  };
+  const { addTask } = useTaskManager();
 
   return (
     <ErrorBoundary>
@@ -42,7 +41,7 @@ const App: React.FC = () => {
           title="Add New Task"
         >
           <TaskForm
-            onSubmit={handleAddTask}
+            onSubmit={addTask}
             onCancel={() => setIsModalOpen(false)}
           />
         </Modal>

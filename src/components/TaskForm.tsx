@@ -16,11 +16,9 @@ const taskSchema = Yup.object().shape({
     .required("Status is required"),
 });
 
-type TaskFormData = Yup.InferType<typeof taskSchema>;
-
 interface TaskFormProps {
   initialData?: Task;
-  onSubmit: (data: TaskFormData) => void;
+  onSubmit: (task: Task) => void;
   onCancel: () => void;
 }
 
@@ -39,7 +37,27 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     },
     validationSchema: taskSchema,
     onSubmit: (values) => {
-        onSubmit(values);
+      // onSubmit(values);
+      if (
+        !values.title.trim() ||
+        !values.description.trim() ||
+        !values.dueDate
+      ) {
+        alert("Please fill in all fields");
+        return;
+      }
+      const newTask: Task = {
+        id: Date.now().toString(),
+        title: values.title.trim(),
+        description: values.description.trim(),
+        dueDate: values.dueDate,
+        priority: values.priority,
+        status: values.status,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      onSubmit(newTask);
+      onCancel();
     },
   });
 
