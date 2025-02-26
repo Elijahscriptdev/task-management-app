@@ -1,9 +1,11 @@
 # Task Management Application
 
 ## Description
+
 A dynamic and interactive task management application that allows users to manage their tasks efficiently.
 
 ## Requirements
+
 1. Implement a component that displays a list of tasks.
    - Each task should have a title, description, due date, priority (low, medium, high), and status (to-do, in-progress, done).
    - Allow users to add, edit, and delete tasks.
@@ -48,6 +50,7 @@ A dynamic and interactive task management application that allows users to manag
     - Ensure type definitions are clear and comprehensive.
 
 ## Preferences
+
 - Minimal use of third-party libraries.
 - The use of functional components and hooks over class components.
 - Clean and modular code structure, consistent code style and formatting.
@@ -57,9 +60,12 @@ A dynamic and interactive task management application that allows users to manag
 - Showcase your knowledge of React and JavaScript/TypeScript.
 
 ## Bonus Points for Creativity
+
 - Innovative and user-friendly UI/UX designs.
 - Additional features such as drag-and-drop, task ordering.
 
 ## Submission
+
 - Provide a link to a GitHub repository containing your solution.
+- Ensure that the `node_modules` directory is ignored in version control by including it in your `.gitignore` file.
 - Include a README file with instructions on how to run the application, a brief description of your approach, and any additional notes or considerations.
