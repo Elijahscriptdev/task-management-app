@@ -22,6 +22,7 @@ const App: React.FC = () => {
     setFilter,
     setSearch,
     setSort,
+    updateTask,
   } = useTaskManager();
 
   const [selectedTask, setSelectedTask] = useState<Task | undefined>(undefined);
@@ -54,6 +55,7 @@ const App: React.FC = () => {
               onTaskClick={setSelectedTask}
               onDeleteTask={deleteTask}
               task={selectedTask}
+              onUpdateTask={updateTask}
             />
           </div>
         </div>

@@ -17,18 +17,18 @@ const taskSchema = Yup.object().shape({
 });
 
 interface TaskFormProps {
-  initialData?: Task;
   onSubmit: (task: Task) => void;
   onCancel: () => void;
+  details?: Task;
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({
-  initialData,
   onSubmit,
   onCancel,
+  details,
 }) => {
   const formik = useFormik({
-    initialValues: initialData || {
+    initialValues: details || {
       title: "",
       description: "",
       dueDate: new Date().toISOString().split("T")[0],
@@ -194,7 +194,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
           type="submit"
           className="cursor-pointer px-6 py-3 text-sm font-medium bg-primary hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/25 transition-all duration-200"
         >
-          {initialData ? "Update Task" : "Add Task"}
+          {details ? "Update Task" : "Add Task"}
         </button>
       </div>
     </form>

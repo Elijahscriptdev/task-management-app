@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import type { Task } from "../types/task";
 import { Modal } from "./Modal";
 import TaskDetails from "./TaskDetails";
+import { TaskForm } from "./TaskForm";
 
 interface TaskListProps {
   tasks: Task[];
   onTaskClick: (task: Task) => void;
   onDeleteTask: (id: string) => void;
   task?: Task;
+  onUpdateTask: (task: Task) => void;
 }
 
 const TaskList: React.FC<TaskListProps> = React.memo(
-  ({ tasks, onTaskClick, onDeleteTask, task }) => {
+  ({ tasks, onTaskClick, onDeleteTask, task, onUpdateTask }) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isModalOpenUpdate, setIsModalOpenUpdate] = useState<boolean>(false);
 
     return (
       <div>
@@ -58,16 +61,38 @@ const TaskList: React.FC<TaskListProps> = React.memo(
                   {task.status}
                 </span>
               </div>
-              <button
-                onClick={() => onDeleteTask(task.id)}
-                className="text-red-500 hover:text-red-700"
-                aria-label={`Delete task ${task.title}`}
-              >
-                Delete
-              </button>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => {
+                    onTaskClick(task);
+                    setIsModalOpenUpdate(true);
+                  }}
+                  className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded text-xs cursor-pointer"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => onDeleteTask(task.id)}
+                  className="bg-red-500 hover:bg-red-700 py-2 px-4 rounded text-white text-xs cursor-pointer"
+                  aria-label={`Delete task ${task.title}`}
+                >
+                  Delete
+                </button>
+              </div>
             </li>
           ))}
         </ul>
+        <Modal
+          isOpen={isModalOpenUpdate}
+          onClose={() => setIsModalOpenUpdate(false)}
+          title="Update Task"
+        >
+          <TaskForm
+            onSubmit={onUpdateTask}
+            onCancel={() => setIsModalOpenUpdate(false)}
+            details={task}
+          />
+        </Modal>
         <Modal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
