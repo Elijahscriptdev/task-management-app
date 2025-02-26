@@ -7,6 +7,7 @@ interface TaskSortProps {
 }
 
 const TaskSort: React.FC<TaskSortProps> = React.memo(({ sort, setSort }) => {
+  
   return (
     <div className="flex space-x-4">
       <div>

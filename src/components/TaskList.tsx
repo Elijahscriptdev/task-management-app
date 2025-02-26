@@ -68,8 +68,7 @@ const TaskList: React.FC<TaskListProps> = React.memo(
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  {/* there is a bug here, its not updating the task */}
-                  {/* <button
+                  <button
                     onClick={() => {
                       onTaskClick(task);
                       setIsModalOpenUpdate(true);
@@ -77,7 +76,7 @@ const TaskList: React.FC<TaskListProps> = React.memo(
                     className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded text-xs cursor-pointer"
                   >
                     Update
-                  </button> */}
+                  </button>
                   <button
                     onClick={() => onDeleteTask(task.id)}
                     className="bg-red-500 hover:bg-red-700 py-2 px-4 rounded text-white text-xs cursor-pointer"

@@ -33,42 +33,10 @@ A dynamic and interactive task management application that allows users to manag
    - Implement error boundaries to catch and display errors in the UI.
    - Display appropriate error messages for failed actions (e.g., adding or deleting tasks).
 
-7. Testing
-   - Write unit tests for the main components and custom hooks using a testing library like Jest.
-   - Ensure coverage includes edge cases and error scenarios.
-
-8. Styling
+7. Styling
    - Ensure the application is responsive and looks good on different screen sizes.
    - Use CSS or CSS-in-JS for styling and avoid inline styles.
 
-9. Accessibility
-   - Ensure the application is accessible, following WCAG guidelines.
-   - Use semantic HTML and ARIA attributes where necessary.
-
-10. Type Safety
-    - Use TypeScript for type safety throughout the application. Alternatively, if using JavaScript, ensure all components use Prop Types for type checking.
-    - Ensure type definitions are clear and comprehensive.
-
-## Preferences
-
-- Minimal use of third-party libraries.
-- The use of functional components and hooks over class components.
-- Clean and modular code structure, consistent code style and formatting.
-- Good commit messages and version control practices.
-- Detailed documentation and comments where necessary.
-- Proper error handling and edge case considerations.
-- Showcase your knowledge of React and JavaScript/TypeScript.
-
-## Bonus Points for Creativity
-
-- Innovative and user-friendly UI/UX designs.
-- Additional features such as drag-and-drop, task ordering.
-
-## Submission
-
-- Provide a link to a GitHub repository containing your solution.
-- Ensure that the `node_modules` directory is ignored in version control by including it in your `.gitignore` file.
-- Include a README file with instructions on how to run the application, a brief description of your approach, and any additional notes or considerations.
 
 ## Running the Application
 
