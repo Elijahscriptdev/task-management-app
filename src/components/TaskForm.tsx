@@ -186,13 +186,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         <button
           type="button"
           onClick={onCancel}
-          className="px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 form-input-shadow transition-all duration-200"
+          className="cursor-pointer px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 form-input-shadow transition-all duration-200"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="px-6 py-3 text-sm font-medium bg-primary hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/25 transition-all duration-200"
+          className="cursor-pointer px-6 py-3 text-sm font-medium bg-primary hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/25 transition-all duration-200"
         >
           {initialData ? "Update Task" : "Add Task"}
         </button>

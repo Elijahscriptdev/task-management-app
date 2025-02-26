@@ -5,11 +5,24 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { useTaskManager } from "./hooks/useTaskManager";
 import TaskList from "./components/TaskList";
 import type { Task } from "./types/task";
+import TaskFilter from "./components/TaskFilter";
+import TaskSearch from "./components/TaskSearch";
+import TaskSort from "./components/TaskSort";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const { addTask, tasks, deleteTask } = useTaskManager();
+  const {
+    tasks,
+    filter,
+    search,
+    sort,
+    addTask,
+    deleteTask,
+    setFilter,
+    setSearch,
+    setSort,
+  } = useTaskManager();
 
   const [selectedTask, setSelectedTask] = useState<Task | undefined>(undefined);
 
@@ -28,6 +41,12 @@ const App: React.FC = () => {
               >
                 Add Task
               </button>
+            </div>
+
+            <div className="flex flex-wrap gap-4 mb-4 w-full">
+              <TaskFilter filter={filter} setFilter={setFilter} />
+              <TaskSearch search={search} setSearch={setSearch} />
+              <TaskSort sort={sort} setSort={setSort} />
             </div>
 
             <TaskList
