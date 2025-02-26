@@ -55,7 +55,9 @@ const App: React.FC = () => {
               onTaskClick={setSelectedTask}
               onDeleteTask={deleteTask}
               task={selectedTask}
-              onUpdateTask={updateTask}
+              onUpdateTask={(updatedTask) => {
+                updateTask(updatedTask)
+              }}
             />
           </div>
         </div>

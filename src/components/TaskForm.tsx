@@ -37,7 +37,6 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     },
     validationSchema: taskSchema,
     onSubmit: (values) => {
-      // onSubmit(values);
       if (
         !values.title.trim() ||
         !values.description.trim() ||
@@ -46,17 +45,32 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         alert("Please fill in all fields");
         return;
       }
-      const newTask: Task = {
-        id: Date.now().toString(),
-        title: values.title.trim(),
-        description: values.description.trim(),
-        dueDate: values.dueDate,
-        priority: values.priority,
-        status: values.status,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-      onSubmit(newTask);
+
+      if (details) {
+        const updatedTask: Task = {
+          ...details,
+          title: values.title.trim(),
+          description: values.description.trim(),
+          dueDate: values.dueDate,
+          priority: values.priority,
+          status: values.status,
+          updatedAt: new Date().toISOString(),
+        };
+        onSubmit(updatedTask);
+      } else {
+        const newTask: Task = {
+          id: Date.now().toString(),
+          title: values.title.trim(),
+          description: values.description.trim(),
+          dueDate: values.dueDate,
+          priority: values.priority,
+          status: values.status,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+        onSubmit(newTask);
+      }
+
       onCancel();
     },
   });
