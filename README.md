@@ -69,3 +69,28 @@ A dynamic and interactive task management application that allows users to manag
 - Provide a link to a GitHub repository containing your solution.
 - Ensure that the `node_modules` directory is ignored in version control by including it in your `.gitignore` file.
 - Include a README file with instructions on how to run the application, a brief description of your approach, and any additional notes or considerations.
+
+## Running the Application
+
+To run the application locally, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd task-management-app
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   yarn install
+   ```
+
+3. **Start the Development Server**:
+   ```bash
+   yarn start
+   ```
+
+4. **Open in Browser**:
+   Navigate to `http://localhost:5173` in your web browser to view the application.
+
+   ```bash
