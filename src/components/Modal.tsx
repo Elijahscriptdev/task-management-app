@@ -29,13 +29,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
-      <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-        <div
-          className="fixed inset-0  bg-opacity-75 transition-opacity"
-          aria-hidden="true"
-          onClick={onClose}
-        />
+      <div
+        className="fixed inset-0 transition-opacity"
+        aria-hidden="true"
+        onClick={onClose}
+      />
 
+      <div className="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <div
           ref={modalRef}
           className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"

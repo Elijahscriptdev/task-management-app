@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Modal } from "./components/Modal";
+import { TaskForm } from "./components/TaskForm";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleAddTask = () => {
+    // setIsModalOpen(true);
+  };
 
   return (
     <div>
@@ -15,13 +20,17 @@ const App: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900">Task Manager</h1>
             <button
               onClick={() => {
+                console.log("Opening modal"); // Debugging log
                 setIsModalOpen(true);
               }}
-              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
             >
               Add Task
             </button>
           </div>
+
+          {/* <TaskFilterBar />
+          <TaskList /> */}
         </div>
       </div>
       <Modal
@@ -29,7 +38,9 @@ const App: React.FC = () => {
         onClose={() => setIsModalOpen(false)}
         title="Add New Task"
       >
-        <div className="space-y-6">hello</div>
+        <TaskForm 
+        onSubmit={handleAddTask} 
+        onCancel={() => setIsModalOpen(false)} />
       </Modal>
     </div>
   );
