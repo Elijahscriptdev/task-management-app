@@ -60,5 +60,3 @@ To run the application locally, follow these steps:
 
 4. **Open in Browser**:
    Navigate to `http://localhost:5173` in your web browser to view the application.
-
-   ```bash
